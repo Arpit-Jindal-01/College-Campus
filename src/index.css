@@ -1,0 +1,350 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* SkillPulse Light Theme */
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 25% 15%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+
+    /* SkillPulse Custom Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(280 90% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(173 80% 40%), hsl(190 80% 50%));
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 20% 98%));
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 58% / 0.1), hsl(173 80% 40% / 0.1));
+    
+    --shadow-sm: 0 1px 2px hsl(220 25% 10% / 0.05);
+    --shadow-md: 0 4px 12px hsl(220 25% 10% / 0.08);
+    --shadow-lg: 0 8px 24px hsl(220 25% 10% / 0.12);
+    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.2);
+    --shadow-card: 0 2px 16px hsl(220 25% 10% / 0.06);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Sidebar vars */
+    --sidebar-background: 220 20% 98%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 95%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 22% 10%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 22% 10%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 18% 14%;
+    --secondary-foreground: 220 15% 85%;
+
+    --muted: 220 15% 16%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 173 80% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 262 83% 65%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 65%), hsl(280 90% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(173 80% 45%), hsl(190 80% 55%));
+    --gradient-surface: linear-gradient(180deg, hsl(220 22% 10%), hsl(220 25% 8%));
+    --gradient-glass: linear-gradient(135deg, rgba(30, 32, 45, 0.9), rgba(30, 32, 45, 0.7));
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 65% / 0.15), hsl(173 80% 45% / 0.15));
+
+    --shadow-sm: 0 1px 2px hsl(220 25% 2% / 0.3);
+    --shadow-md: 0 4px 12px hsl(220 25% 2% / 0.4);
+    --shadow-lg: 0 8px 24px hsl(220 25% 2% / 0.5);
+    --shadow-glow: 0 0 40px hsl(262 83% 65% / 0.25);
+    --shadow-card: 0 2px 16px hsl(220 25% 2% / 0.3);
+
+    --sidebar-background: 220 22% 8%;
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-primary: 262 83% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 18% 12%;
+    --sidebar-accent-foreground: 220 15% 85%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 262 83% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+
+  .gradient-glass {
+    background: var(--gradient-glass);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border border-border/50;
+    background: var(--gradient-glass);
+  }
+
+  .glass-card-strong {
+    @apply backdrop-blur-2xl border border-border/30;
+    background: linear-gradient(135deg, 
+      hsl(var(--card) / 0.95), 
+      hsl(var(--card) / 0.85)
+    );
+  }
+}
+
+/* Mobile-first safe areas */
+@supports (padding: max(0px)) {
+  .safe-top { padding-top: max(1rem, env(safe-area-inset-top)); }
+  .safe-bottom { padding-bottom: max(5rem, calc(env(safe-area-inset-bottom) + 5rem)); }
+  .safe-left { padding-left: max(1rem, env(safe-area-inset-left)); }
+  .safe-right { padding-right: max(1rem, env(safe-area-inset-right)); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, 
+    hsl(var(--muted)) 0%, 
+    hsl(var(--muted-foreground) / 0.1) 50%, 
+    hsl(var(--muted)) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 1s ease-in-out infinite;
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* Press effect */
+.press-effect {
+  @apply transition-transform duration-150 active:scale-95;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab bar blur effect */
+.tab-bar-blur {
+  @apply backdrop-blur-xl;
+  background: linear-gradient(to top, 
+    hsl(var(--background) / 0.95) 0%,
+    hsl(var(--background) / 0.85) 100%
+  );
+}
+
+/* Dating section pink gradient background */
+.dating-gradient {
+  background: linear-gradient(180deg, 
+    hsl(var(--background)) 0%,
+    hsl(350 100% 98% / 0.3) 50%,
+    hsl(var(--background)) 100%
+  );
+}
+
+.dark .dating-gradient {
+  background: linear-gradient(180deg, 
+    hsl(var(--background)) 0%,
+    hsl(350 50% 10% / 0.3) 50%,
+    hsl(var(--background)) 100%
+  );
+}

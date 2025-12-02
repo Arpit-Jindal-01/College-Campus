@@ -1,0 +1,10 @@
+project_id = "ufjetehvdwfhrfifzayn"
+
+[functions.process-lecture]
+verify_jwt = false
+
+[functions.campus-chatbot]
+verify_jwt = false
+
+[functions.admin-operations]
+verify_jwt = true
